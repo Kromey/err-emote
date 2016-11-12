@@ -1,0 +1,9 @@
+[Core]
+Name = Emote
+Module = emote
+
+[Python]
+Version = 3
+
+[Documentation]
+Description = Make Err a bit more emotive
