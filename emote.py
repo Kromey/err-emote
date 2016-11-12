@@ -50,16 +50,8 @@ class Emote(BotPlugin):
             'Don\'t talk about me like I\'m not here!',
             )
     def callback_message(self, msg):
-        if msg.getBody().lower().find('cookie') != -1:
-            self.send(
-                    msg.getFrom(),
-                    "Who said cookie? Where is it? Cookie??",
-                    message_type=msg.getType()
-                    )
-        elif msg.getBody().lower().find('the bot') != -1:
-            self.send(
-                    msg.getFrom(),
-                    random.choice(self._responses_the_bot),
-                    message_type=msg.getType()
-                    )
+        if msg.body.lower().find('cookie') != -1:
+            return "Who said cookie? Where is it? Cookie??"
+        elif msg.body.lower().find('the bot') != -1:
+            return random.choice(self._responses_the_bot)
 
