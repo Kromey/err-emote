@@ -49,7 +49,7 @@ class Emote(BotPlugin):
             'I have a name you know!',
             'Don\'t talk about me like I\'m not here!',
             )
-    def callback_message(self, conn, msg):
+    def callback_message(self, msg):
         if msg.getBody().lower().find('cookie') != -1:
             self.send(
                     msg.getFrom(),
