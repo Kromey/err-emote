@@ -51,7 +51,13 @@ class Emote(BotPlugin):
             )
     def callback_message(self, msg):
         if msg.body.lower().find('cookie') != -1:
-            return "Who said cookie? Where is it? Cookie??"
+            self.send(
+                msg.frm,
+                "Who said cookie? Where is it? Cookie??",
+            )
         elif msg.body.lower().find('the bot') != -1:
-            return random.choice(self._responses_the_bot)
+            self.send(
+                msg.frm,
+                random.choice(self._responses_the_bot),
+            )
 
