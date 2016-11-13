@@ -27,6 +27,11 @@ class Emote(BotPlugin):
         """Say hello to folks"""
         return "Hello, " + re.sub('^to *', '', args) + '!'
 
+    @botcmd(hidden=True)
+    def say_hi(self, msg, args):
+        """Say hi to folks"""
+        return "Hi, " + re.sub('^to *', '', args) + '!'
+
     _dances = (
             'dances a merry jig',
             'dances around the room',
