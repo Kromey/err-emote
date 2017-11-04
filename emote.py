@@ -17,6 +17,11 @@ class Emote(BotPlugin):
         return "/me slaps " + args + " with a large trout"
 
     @botcmd
+    def poke(self, msg, args):
+        """Poke people"""
+        return "/me poke poke poke"
+
+    @botcmd
     def say(self, msg, args):
         """Say things"""
         #return args.capitalize()
