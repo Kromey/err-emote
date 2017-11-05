@@ -55,9 +55,9 @@ class Emote(BotPlugin):
         """Dance a merry jig!"""
         return "/me " + random.choice(self._dances) + '!'
 
-    _responses_the_bot = (
-            'I have a name you know!',
-            'Don\'t talk about me like I\'m not here!',
+    _emotes = (
+            (re.compile(r'\bcookie\b'), ('Who said cookie?', 'Someone has cookies??', 'Can I please have the cookie?')),
+            (re.compile(r'\bthe bot\b'), ('I have a name you know!', 'Don\'t talk about me like I\'m not here!')),
             )
     def callback_message(self, msg):
         try:
@@ -65,14 +65,11 @@ class Emote(BotPlugin):
         except AttributeError:
             reply = msg.frm
 
-        if msg.body.lower().find('cookie') != -1:
-            self.send(
-                reply,
-                "Who said cookie? Where is it? Cookie??",
-            )
-        elif msg.body.lower().find('the bot') != -1:
-            self.send(
-                reply,
-                random.choice(self._responses_the_bot),
-            )
+        message = msg.body.lower()
+        for emote in self._emotes:
+            if emote[0].search(message):
+                self.send(
+                        reply,
+                        random.choice(emote[1]),
+                        )
 
