@@ -96,6 +96,7 @@ class Emote(BotPlugin):
     _emotes = (
             (re.compile(r'\bcookie\b'), ('Who said cookie?', 'Someone has cookies??', 'Can I please have the cookie?')),
             (re.compile(r'\bthe bot\b'), ('I have a name you know!', 'Don\'t talk about me like I\'m not here!')),
+            (re.compile(r'(^/me cr(y|ies)|:\'\()'), ('Aw don\'t be sad!', 'Don\'t cry!')),
             )
     def callback_message(self, msg):
         try:
